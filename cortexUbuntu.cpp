@@ -23,6 +23,8 @@ public: void onload (){
 			helpFunction();
 		}else if(input == "clear"){
 			clearScreenFunction();
+		}else if(input == "vim"){
+			vimFunction();
 		}else{
 			printf("Error, Command Not Found\n");
 			resetFunction();
@@ -60,7 +62,17 @@ public: void onload (){
 		system("clear");
 		onload();
 	}
-	
+	//Vim function
+	void vimFunction(){
+		char filename[32];
+		std::cin.getline(filename, 32);
+		std::string vim = "vim ";
+		vim = vim + filename;
+		const char *command = vim.c_str();
+		system(command);
+		onload();	
+	}
+		
 };
 
 int main(){
