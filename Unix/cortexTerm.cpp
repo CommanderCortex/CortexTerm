@@ -25,6 +25,10 @@ public: void onload (){
 			clearScreenFunction();
 		}else if(input == "vim"){
 			vimFunction();
+		}else if(input == "c++"){
+			cppFunction();
+		}else if(input == "mkfile"){
+			createFile();
 		}else{
 			printf("Error, Command Not Found\n");
 			resetFunction();
@@ -72,7 +76,25 @@ public: void onload (){
 		system(command);
 		onload();	
 	}
-		
+	//Compile C++ code function
+	void cppFunction(){
+		char filename[32];
+		std::cin.getline(filename, 32);
+		std::string cpp = "g++ ";
+		cpp = cpp + filename;
+		const char *command = cpp.c_str();
+		system(command);
+		onload();
+	}
+	//File creation function
+	void createFile(){
+		char filename[32];
+		std::cin.getline(filename, 32);
+		std::ofstream outfile (filename);
+		outfile.close();
+		onload();
+	}
+
 };
 
 int main(){

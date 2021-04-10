@@ -11,7 +11,13 @@ int main(){
 
 	if(userInput == "MacOS"){
 		std::string str  = "./";
-		std::string OS   = "cortexMacOS";
+		std::string OS   = "/Unix/MacTerm";
+		str = str + OS;
+		const char *command = str.c_str();
+		system(command);
+	}else if(userInput == "Ubuntu"){
+		std::string str  = "./";
+		std::string OS   = "/Unix/UbuntuTerm";
 		str = str + OS;
 		const char *command = str.c_str();
 		system(command);
