@@ -21,6 +21,12 @@ int main(){
 		str = str + OS;
 		const char *command = str.c_str();
 		system(command);
+	}else if(userInput == "Windows"){
+		std::string str = "./";
+		std::string OS = "./Windows/CortexTermNT";
+		str = str + OS;
+		const char *command = str.c_str();
+		system(command);
 	}else{
 		printf("Error, Operating System not supported!\n");
 		return 1;
