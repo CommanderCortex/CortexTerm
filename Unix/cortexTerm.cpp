@@ -29,6 +29,10 @@ public: void onload (){
 			cppFunction();
 		}else if(input == "mkfile"){
 			createFile();
+		}else if(input == "ls"){
+			listDir();	
+		}else if(input == "run"){
+			biRun();
 		}else{
 			printf("Error, Command Not Found\n");
 			resetFunction();
@@ -36,10 +40,6 @@ public: void onload (){
 	}
 //All Terminal Functions:
 
-	//Exit Function
-	void exitFunction(){
-		system("exit");
-	}
 	//Help Function:
 	void helpFunction(){
 		std::cout<<"<Cortex Help>\n";
@@ -61,9 +61,18 @@ public: void onload (){
 	void resetFunction(){
 		onload();
 	}
+	//Exit Function
+	void exitFunction(){
+		system("exit");
+	}
 	//Clears the Users Screen
 	void clearScreenFunction(){
 		system("clear");
+		onload();
+	}
+	//Lists the current working directory
+	void listDir(){
+		system("ls");
 		onload();
 	}
 	//Vim function
@@ -86,6 +95,24 @@ public: void onload (){
 		system(command);
 		onload();
 	}
+	//Run Binary Executable Programs 
+	void biRun(){
+		char filename[32];
+		std::cin.getline(filename, 32);
+		std::string run = "./";
+		run = run + filename;
+		const char *command = run.c_str();
+		system(command);
+		onload();
+	}
+	//Change Current Directory
+	//void cd(){
+	//	char directory[32];
+	//	std::cin.getline(directory, 32);
+	//	std::string cd = "cd";
+	//	cd = cd + directory;
+	//
+	//}
 	//File creation function
 	void createFile(){
 		char filename[32];
@@ -94,7 +121,6 @@ public: void onload (){
 		outfile.close();
 		onload();
 	}
-
 };
 
 int main(){
